@@ -1,22 +1,22 @@
-def create_many(a):
+def create_set(prompt):
     while True:
-        inputt = input(a)
-
+        user_input = input(prompt)
         try:
-            text = set(map(int, inputt.split()))
-            return text
+
+            return set(map(int, user_input.split()))
         except ValueError:
-            print("Введены некорректные символы. Введите числа")
-            exit(0)
+            print("Введены некорректные символы. Пожалуйста, введите только числа, разделенные пробелами.")
 
 
-text_1 = create_many("Введите первое множество\n")
-text_2 = create_many("Введите второе множество\n")
+set_1 = create_set("Введите первое множество (числа, разделенные пробелами):\n")
+set_2 = create_set("Введите второе множество (числа, разделенные пробелами):\n")
 
-intersec = text_1.intersection(text_2)
 
-if intersec:
-    r = ' '.join(map(str, intersec))
-    print(f"Пересечение множеств: {r}")
+intersection = set_1.intersection(set_2)
+
+
+if intersection:
+    result = ' '.join(map(str, intersection))
+    print(f"Пересечение множеств: {result}")
 else:
     print("Пересечения нет")
